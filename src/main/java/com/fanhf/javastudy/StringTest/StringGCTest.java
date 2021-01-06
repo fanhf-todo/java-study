@@ -6,7 +6,7 @@ package com.fanhf.javastudy.StringTest;
  *  -Xms15m -Xmx15m -XX:+PrintStringTableStatistics -XX:+PrintGCDetails
  */
 public class StringGCTest {
-
+private static String s = "11111";
     /**
      * 测试案例：
      * 1、先把参数配置上，注释掉for循环，运行看结果
@@ -16,8 +16,14 @@ public class StringGCTest {
      * 5、把for循环次数改成100000，运行看结果
      */
     public static void main(String[] args) {
-        for (int i = 0; i < 100000; i++) {
+        /*for (int i = 0; i < 100000; i++) {
             String.valueOf(i).intern();
-        }
+        }*/
+        s = test();
+        System.out.println("s:" + s);
+    }
+    public static String test(){
+        String s = "adfsdfs";
+        return s;
     }
 }

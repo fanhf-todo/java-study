@@ -1,4 +1,4 @@
-package com.fanhf.javastudy;
+package com.fanhf.javastudy.enumTest;
 
 import org.apache.commons.lang3.StringUtils;
 

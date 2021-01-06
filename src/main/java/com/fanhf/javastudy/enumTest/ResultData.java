@@ -1,4 +1,4 @@
-package com.fanhf.javastudy;
+package com.fanhf.javastudy.enumTest;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fanhf.javastudy.utils.ObjectMapperUtils;
@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @author fanhf
- * @Description TODO
+ * @Description 结果集
  * @date 2020-12-28 11:03
  */
 

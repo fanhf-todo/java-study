@@ -1,8 +1,56 @@
+package com.fanhf.javastudy.gcTest;
+
+import java.lang.ref.SoftReference;
+
 /**
- * @Description TODO
- *
- * @author    fanhf
- * @date      2021-01-05 16:33
+ * @author fanhf
+ * @Description 软引用的测试：内存不足即回收
+ * @date 2021-01-05 16:33
  */
 public class SoftReferenceTest {
+    public static class User{
+        public User(int id,String name){
+            this.id = id;
+            this.name = name;
+        }
+
+        public int id;
+        public String name;
+
+        @Override
+        public String toString(){
+            return "[id=" + id + ",name=" + name + "]";
+        }
+    }
+
+    public static void main(String[] args) {
+        //创建对象，建立软引用
+
+//        SoftReference<User> userSoftReference = new SoftReference<User>(new User(1, "fanhf"));
+        // 上面的一行代码，等价于下面的三行代码
+        User user = new User(1, "fanhf");
+        SoftReference<User> userSoftReference = new SoftReference<User>(user);
+        user = null;
+
+        //从软引用中重新获得强引用对象
+        System.out.println(userSoftReference.get());
+        System.gc();
+
+        System.out.println("After GC");
+        //垃圾回收之后获得软引用中的对象
+        //由于堆空格键内存足够，所有不会回收软引用的可达对象
+        System.out.println(userSoftReference.get());
+        try {
+            //让系统认为内存资源紧张
+            byte[] b = new byte[1024 * 1027 * 7];
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            //再次从软引用中获取数据
+            //根据OOM之前，垃圾回收器会回收软引用的可达对象
+            System.out.println(userSoftReference.get());
+        }
+
+    }
+
 }   

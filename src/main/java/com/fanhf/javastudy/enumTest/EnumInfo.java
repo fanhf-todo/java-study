@@ -1,4 +1,4 @@
-package com.fanhf.javastudy;
+package com.fanhf.javastudy.enumTest;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -7,7 +7,7 @@ import lombok.Data;
 
 /**
  * @author fanhf
- * @Description TODO
+ * @Description 统一枚举值
  * @date 2020-12-28 10:59
  */
 @ApiModel(value = "静态数据")

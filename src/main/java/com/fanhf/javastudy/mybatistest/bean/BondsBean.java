@@ -15,6 +15,7 @@ public class BondsBean extends  CommonBean{
     private  String  givenMoney;
     private  String  profit;
     private  Integer beListsTime;
+
     @CreateTime
     private  Integer  createTime;
     @UpdateTime
