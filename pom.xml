@@ -46,10 +46,10 @@
         </dependency>
 
         <!--        <dependency>-->
-<!--            <groupId>org.freemarker</groupId>-->
-<!--            <artifactId>freemarker</artifactId>-->
-<!--            <version>2.3.23</version>-->
-<!--        </dependency>-->
+        <!--            <groupId>org.freemarker</groupId>-->
+        <!--            <artifactId>freemarker</artifactId>-->
+        <!--            <version>2.3.23</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
@@ -67,7 +67,7 @@
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
             <version>2.7.9</version>
-            <scope>compile</scope>
+<!--            <scope>compile</scope>-->
         </dependency>
 
         <dependency>
@@ -97,10 +97,14 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+            <version>1.8.5</version>
+        </dependency>
+        <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
             <version>1.5.3</version>
-
         </dependency>
         <dependency>
             <groupId>io.swagger</groupId>
@@ -140,27 +144,35 @@
         </dependency>
 
         <!-- 引入自己写的一个包-->
-<!--        <dependency>-->
-<!--            <groupId>com.fanhf</groupId>-->
-<!--            <artifactId>annotation-test</artifactId>-->
-<!--            <version>0.0.1-SNAPSHOT</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.fanhf</groupId>-->
+        <!--            <artifactId>annotation-test</artifactId>-->
+        <!--            <version>0.0.1-SNAPSHOT</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-       <!-- <dependency>
-            <groupId>p6spy</groupId>
-            <artifactId>p6spy</artifactId>
-            <version>3.0.0</version>
-        </dependency>-->
-       <!-- <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.3.1</version>
-        </dependency>-->
-
+         <dependency>
+             <groupId>p6spy</groupId>
+             <artifactId>p6spy</artifactId>
+             <version>3.7.0</version>
+         </dependency>
+        <!-- <dependency>
+             <groupId>com.baomidou</groupId>
+             <artifactId>mybatis-plus-boot-starter</artifactId>
+             <version>3.3.1</version>
+         </dependency>-->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.4.0</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -178,12 +190,13 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+       <!-- 发送邮件 -->
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
         </dependency>
+
     </dependencies>
 
     <build>
