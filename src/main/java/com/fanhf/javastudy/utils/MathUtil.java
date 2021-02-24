@@ -31,7 +31,7 @@ public class MathUtil {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
 
-        for(int i = 0; i < length; ++i) {
+        for (int i = 0; i < length; ++i) {
             int number = random.nextInt(base.length());
             stringBuffer.append(base.charAt(number));
         }
@@ -49,7 +49,7 @@ public class MathUtil {
 
         int randInt = 0;
 
-        for(int i = 0; i < n; ++i) {
+        for (int i = 0; i < n; ++i) {
             randInt = random.nextInt(10);
             result = result + randInt;
         }
@@ -73,7 +73,7 @@ public class MathUtil {
         byte[] byteArray = messageDigest.digest();
         StringBuffer md5StringBuff = new StringBuffer();
 
-        for(int i = 0; i < byteArray.length; ++i) {
+        for (int i = 0; i < byteArray.length; ++i) {
             if (Integer.toHexString(255 & byteArray[i]).length() == 1) {
                 md5StringBuff.append("0").append(Integer.toHexString(255 & byteArray[i]));
             } else {

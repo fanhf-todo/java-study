@@ -33,7 +33,7 @@ public class ObjectMapperUtils {
 
     public static <T> List<T> json2objects(List<JSONObject> json, Class<T> t) throws Exception {
         JavaType javaType = objectMapper.getTypeFactory().constructParametricType(ArrayList.class, new Class[]{t});
-        return (List)objectMapper.readValue(JSONObject.toJSONString(json, new SerializerFeature[]{SerializerFeature.DisableCircularReferenceDetect}), javaType);
+        return (List) objectMapper.readValue(JSONObject.toJSONString(json, new SerializerFeature[]{SerializerFeature.DisableCircularReferenceDetect}), javaType);
     }
 
     public static <T> List<JSONObject> objects2json(List<T> t) throws Exception {

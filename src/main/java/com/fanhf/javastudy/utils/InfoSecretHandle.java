@@ -9,12 +9,13 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class InfoSecretHandle {
     public static void main(String[] args) {
-       System.out.println( getCardNumber("411424199209172825"));
-       System.out.println(getName("范慧芳"));
+        System.out.println(getCardNumber("411424199209172825"));
+        System.out.println(getName("范慧芳"));
     }
 
     /**
      * 用户身份证号脱敏
+     *
      * @return
      */
     public static String getCardNumber(String cardNumber) {
@@ -26,6 +27,7 @@ public class InfoSecretHandle {
 
     /**
      * 用户真实姓名脱敏
+     *
      * @return
      */
     public static String getName(String name) {

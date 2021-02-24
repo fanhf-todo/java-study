@@ -19,7 +19,7 @@ import org.springframework.beans.factory.annotation.Value;
  */
 public class SnowflakeIdFactory {
     private static final Logger log = LoggerFactory.getLogger(SnowflakeIdFactory.class);
-//    private final long twepoch = 1288834974657L;
+    //    private final long twepoch = 1288834974657L;
 //    private final long workerIdBits = 5L;
 //    private final long datacenterIdBits = 5L;
 //    private final long sequenceBits = 12L;
@@ -48,7 +48,7 @@ public class SnowflakeIdFactory {
                 Enumeration netInterfaces = NetworkInterface.getNetworkInterfaces();
 
                 label54:
-                while(true) {
+                while (true) {
                     NetworkInterface ni;
                     do {
                         do {
@@ -56,14 +56,14 @@ public class SnowflakeIdFactory {
                                 break label54;
                             }
 
-                            ni = (NetworkInterface)netInterfaces.nextElement();
-                        } while(StringUtils.containsIgnoreCase(ni.getName(), "lo"));
-                    } while(!StringUtils.equalsIgnoreCase(ni.getName(), "eth0"));
+                            ni = (NetworkInterface) netInterfaces.nextElement();
+                        } while (StringUtils.containsIgnoreCase(ni.getName(), "lo"));
+                    } while (!StringUtils.equalsIgnoreCase(ni.getName(), "eth0"));
 
                     Enumeration addresses = ni.getInetAddresses();
 
-                    while(addresses.hasMoreElements()) {
-                        InetAddress ips = (InetAddress)addresses.nextElement();
+                    while (addresses.hasMoreElements()) {
+                        InetAddress ips = (InetAddress) addresses.nextElement();
                         if (ips != null && ips instanceof Inet4Address) {
                             ip = ips.getHostAddress();
                             break label54;
@@ -117,7 +117,7 @@ public class SnowflakeIdFactory {
 
     protected long tilNextMillis(long lastTimestamp) {
         long timestamp;
-        for(timestamp = this.timeGen(); timestamp <= lastTimestamp; timestamp = this.timeGen()) {
+        for (timestamp = this.timeGen(); timestamp <= lastTimestamp; timestamp = this.timeGen()) {
         }
 
         return timestamp;

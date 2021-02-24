@@ -95,7 +95,7 @@ public class Ex7 {
     }
 
     public static void main(String[] args) {
-        System.out.println("redis："+String.format("%s:%s", "activity", "bigfactory"));
+        System.out.println("redis：" + String.format("%s:%s", "activity", "bigfactory"));
 
         (new Ex7()).dataReader("D:\\study\\xiaomi.java", 2, 4);
         (new Ex7()).dataReader("D:\\study\\xiaomi.java", 3, 8);
