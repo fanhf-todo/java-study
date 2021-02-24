@@ -15,12 +15,12 @@ import java.util.List;
  */
 public class IfNullTest {
     @Test
-    public void test1(){
+    public void test1() {
         String str1 = null;
-        if(null == str1 ){
+        if (null == str1) {
             System.out.println("11111111111");
         }
-        if(str1 == null ){
+        if (str1 == null) {
             System.out.println("22222222222");
         }
         /**
@@ -34,14 +34,14 @@ public class IfNullTest {
     }
 
     @Test
-    public void test2(){
+    public void test2() {
         String str = null;
         // 情况1，执行报错：NullPointerException
-        if(str.equals("1")){
+        if (str.equals("1")) {
             System.out.println("111111111111");
         }
         // 情况2 ,执行不会报错
-        if("1".equals(str)){
+        if ("1".equals(str)) {
             System.out.println("22222222222");
         }
         /**
@@ -52,9 +52,10 @@ public class IfNullTest {
          * ===================结论====================
          **/
     }
+
     @Test
-    public void test3(){
-        System.out.println(759+149*2+159+41.9+59+199);
+    public void test3() {
+        System.out.println(759 + 149 * 2 + 159 + 41.9 + 59 + 199);
         Integer index = 100;
 //        System.out.println("100:"+String.valueOf(100).getClass());//(obj == null) ? "null" : obj.toString();
 //        System.out.println("index:"+String.valueOf(index).getClass());//(obj == null) ? "null" : obj.toString();
@@ -63,36 +64,38 @@ public class IfNullTest {
         //选String。valueOf
 
     }
+
     @Test
-    public  void test4(){
+    public void test4() {
         Long ms = System.currentTimeMillis() / 1000L;
-      System.out.println(ms.intValue());
+        System.out.println(ms.intValue());
     }
 
     @Test
-    public  void test5(){
-       List<String> list = null;
-       if(list.size()==0){
-           System.out.println("null");
-       }
-     }
-     @Test
-     public void test6(){
+    public void test5() {
+        List<String> list = null;
+        if (list.size() == 0) {
+            System.out.println("null");
+        }
+    }
+
+    @Test
+    public void test6() {
 //        int i = 10/0;
 //        System.out.println(i);
-         boolean fals = Boolean.parseBoolean("true");
-         System.out.println(fals);
-         if(fals){
-             System.out.println("1111111111111");
-         }
+        boolean fals = Boolean.parseBoolean("true");
+        System.out.println(fals);
+        if (fals) {
+            System.out.println("1111111111111");
+        }
 //         boolean fals = Boolean.parseBoolean("true");
 //         System.out.println(fals);
 //         if(fals){
 //             System.out.println("1111111111111");
 //         }
-         HashMap map = new HashMap();
-         map.put("security", "sss");
-         map.put("channelNo", "aaaa");
+        HashMap map = new HashMap();
+        map.put("security", "sss");
+        map.put("channelNo", "aaaa");
         System.out.println(JSON.toJSONString(map));
-     }
+    }
 }   

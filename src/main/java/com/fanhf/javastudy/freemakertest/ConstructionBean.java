@@ -7,25 +7,25 @@ package com.fanhf.javastudy.freemakertest;
  */
 public class ConstructionBean {
 
-     private String companyName;
-     private String projectName;
-     private String porjectContent;
-     private Integer buildingArea;
-     private String buildingLocation;
-     private String stucturalStyle;
-     private Integer buildingFloor;
-     private Double totalMoney;
-     private Double everyMoney;
-     private Double directFee;
-     private Double indirectFee;
-     private Double materialDiffPrice;
-     private Double otherFee;
-     private String startWorkTime;
-     private String finishedWorkTime;
-     private Integer totalDays;
-     private Integer arrivalLevel;
-     private String qualityGuarantee;
-     private String constructionMaterial;
+    private String companyName;
+    private String projectName;
+    private String porjectContent;
+    private Integer buildingArea;
+    private String buildingLocation;
+    private String stucturalStyle;
+    private Integer buildingFloor;
+    private Double totalMoney;
+    private Double everyMoney;
+    private Double directFee;
+    private Double indirectFee;
+    private Double materialDiffPrice;
+    private Double otherFee;
+    private String startWorkTime;
+    private String finishedWorkTime;
+    private Integer totalDays;
+    private Integer arrivalLevel;
+    private String qualityGuarantee;
+    private String constructionMaterial;
 
     public String getCompanyName() {
         return companyName;

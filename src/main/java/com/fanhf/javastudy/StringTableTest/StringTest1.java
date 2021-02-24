@@ -11,7 +11,7 @@ import java.io.IOException;
  * @date 2020-12-24 18:19
  */
 public class StringTest1 {
-    public  static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException {
         System.out.println("我来打酱油了");
 //        try {
 //            Thread.sleep(100000);
@@ -22,12 +22,12 @@ public class StringTest1 {
         try {
             br = new BufferedReader(new FileReader("words.txt"));
             long start = System.currentTimeMillis();
-            String data ;
-            while ((data = br.readLine()) !=null){
+            String data;
+            while ((data = br.readLine()) != null) {
                 data.intern();
             }
             long end = System.currentTimeMillis();
-            System.out.println("spend time:" + (end -start));
+            System.out.println("spend time:" + (end - start));
         } catch (IOException e) {
             e.printStackTrace();
         }

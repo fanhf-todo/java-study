@@ -14,14 +14,14 @@ public class EscapeAnalysisTest {
     /**
      * 方法返回EscapeAnalysisTest对象，发生逃逸
      */
-    public EscapeAnalysisTest getInstance(){
+    public EscapeAnalysisTest getInstance() {
         return obj == null ? new EscapeAnalysisTest() : obj;
     }
 
     /**
      * 为成员属性赋值，发生逃逸
      */
-    public void setObj(){
+    public void setObj() {
         this.obj = new EscapeAnalysisTest();
     }
 
@@ -33,7 +33,7 @@ public class EscapeAnalysisTest {
     /**
      * 对象的作用域仅在当前方法中有效，没有发生逃逸
      */
-    public void useEscapeAnalysisTest(){
+    public void useEscapeAnalysisTest() {
         EscapeAnalysisTest eat = new EscapeAnalysisTest();
     }
 
@@ -41,8 +41,8 @@ public class EscapeAnalysisTest {
     /**
      * 引用成员变量的值，发生逃逸
      */
-    public  void useEscapeAnalysisTest1(){
-        EscapeAnalysisTest  es = getInstance();
+    public void useEscapeAnalysisTest1() {
+        EscapeAnalysisTest es = getInstance();
 
         //getInstance().xxx()同样慧发生逃逸
     }

@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class ListForEacheTest {
     @Test
-    public void test(){
+    public void test() {
         /**
          * 4 -6
          *
@@ -35,8 +35,32 @@ public class ListForEacheTest {
             for (int j = 0; j < list1.size(); j++) {
                 String strAnother = list1.get(j);
 //                System.out.println("strAnother:"+strAnother);
-                System.out.println(str +":"+strAnother);
+                System.out.println(str + ":" + strAnother);
             }
+        }
+    }
+
+    @Test
+    public void est1() throws Exception {
+        int i = 10;
+        try {
+            for (int j = 0; j < 10; j++) {
+                try {
+                    System.out.println("111111111");
+                    if (j == 5) {
+                        try {
+                            int s = 10 / 0;
+                        } catch (Exception e) {
+                            System.out.println("error");
+                        }
+                    }
+                    System.out.println("j=" + j);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }   

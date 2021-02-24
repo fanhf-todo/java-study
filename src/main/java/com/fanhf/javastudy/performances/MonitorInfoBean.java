@@ -142,7 +142,7 @@ public class MonitorInfoBean {
         boolean PRIME = true;
         int result = 1;
         long $totalMemory = this.getTotalMemory();
-         result = result * 59 + (int) ($totalMemory >>> 32 ^ $totalMemory);
+        result = result * 59 + (int) ($totalMemory >>> 32 ^ $totalMemory);
         long $freeMemory = this.getFreeMemory();
         result = result * 59 + (int) ($freeMemory >>> 32 ^ $freeMemory);
         long $maxMemory = this.getMaxMemory();

@@ -14,11 +14,11 @@ public class ThreadTest {
 //        threadTest.thread3Test();
     }
 
-    public void thread2Test(){
+    public void thread2Test() {
         //2个线程，一个main，一个thread-0
         Thread thread = new Thread(
                 () -> {
-                    System.out.printf("Run begin another , 当前线程 : %s.%n" ,Thread.currentThread().getName());
+                    System.out.printf("Run begin another , 当前线程 : %s.%n", Thread.currentThread().getName());
                 }
         );
         thread.start();
@@ -35,10 +35,10 @@ public class ThreadTest {
 
     }
 
-    public void thread22Test(){
+    public void thread22Test() {
         Thread thread = new Thread(
                 () -> {
-                    System.out.printf("Run begin another , 当前线程 : %s.%n" ,Thread.currentThread().getName());
+                    System.out.printf("Run begin another , 当前线程 : %s.%n", Thread.currentThread().getName());
                 }
         );
         thread.start();
@@ -72,18 +72,18 @@ public class ThreadTest {
          **/
     }
 
-    public void thread3Test(){
+    public void thread3Test() {
         //3个线程，一个main，一个thread-0，一个thread-1
         Thread thread = new Thread(
                 () -> {
-                    System.out.printf("Run begin thread , 当前线程 : %s.%n" ,Thread.currentThread().getName());
+                    System.out.printf("Run begin thread , 当前线程 : %s.%n", Thread.currentThread().getName());
                 }
         );
         thread.start();
 
         Thread thread1 = new Thread(
                 () -> {
-                    System.out.printf("Run begin thread1 , 当前线程 : %s.%n" ,Thread.currentThread().getName());
+                    System.out.printf("Run begin thread1 , 当前线程 : %s.%n", Thread.currentThread().getName());
                 }
         );
         thread1.start();

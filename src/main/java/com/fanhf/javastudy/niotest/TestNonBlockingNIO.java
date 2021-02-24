@@ -18,10 +18,11 @@ import java.util.Scanner;
  */
 public class TestNonBlockingNIO {
 
-    public  static void main(String[] args){
+    public static void main(String[] args) {
 
     }
-    public static void client(){
+
+    public static void client() {
         try {
             //1、获取通道
             SocketChannel sChannel = SocketChannel.open(new InetSocketAddress("127.0.0.1", 9898));
@@ -31,8 +32,8 @@ public class TestNonBlockingNIO {
             ByteBuffer buf = ByteBuffer.allocate(1024);
             //4、发送数据给服务端
             Scanner scanner = new Scanner(System.in);
-            while (scanner.hasNextLine()){
-                String  str= scanner.next();
+            while (scanner.hasNextLine()) {
+                String str = scanner.next();
                 buf.put((LocalDateTime.now().toString() + "\n" + str).getBytes());
                 buf.flip();
                 sChannel.write(buf);
@@ -46,7 +47,7 @@ public class TestNonBlockingNIO {
         }
     }
 
-    public static void server(){
+    public static void server() {
         try {
             //1、获取通道
             ServerSocketChannel ssChannel = ServerSocketChannel.open();
@@ -59,21 +60,21 @@ public class TestNonBlockingNIO {
             //5、将通道注册到选择器上，并且指定“监听接收事件”
             ssChannel.register(selector, SelectionKey.OP_ACCEPT);
             //6、轮询式的获取选择器上已经“准备就绪”的事件
-            while (selector.select() > 0){
+            while (selector.select() > 0) {
                 //7、获取当前选择器所有注册的“选择器（已就绪的监听事件）”
                 Iterator<SelectionKey> it = selector.selectedKeys().iterator();
-                while (it.hasNext()){
+                while (it.hasNext()) {
                     //8、获取准备“就绪”事件
                     SelectionKey sk = it.next();
                     //9、判断具体是什么时间准备就绪
-                    if(sk.isAcceptable()){
-                         //10、若“接受就绪”，获取客户端连接
-                        SocketChannel socketChannel =ssChannel.accept();
+                    if (sk.isAcceptable()) {
+                        //10、若“接受就绪”，获取客户端连接
+                        SocketChannel socketChannel = ssChannel.accept();
                         //11、切换非阻塞模式
                         socketChannel.configureBlocking(false);
                         //12、将该通道注册到选择器上
                         socketChannel.register(selector, SelectionKey.OP_READ);
-                    }else if(sk.isReadable()){
+                    } else if (sk.isReadable()) {
                         //13、获取当前选择器上“读就绪”状态的通道
                         SocketChannel socketChannel = (SocketChannel) sk.channel();
                         //14、读取数据

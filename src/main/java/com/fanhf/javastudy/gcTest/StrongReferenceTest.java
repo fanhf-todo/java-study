@@ -25,14 +25,15 @@ public class StrongReferenceTest {
         }
         System.out.println(st1);
     }
-    public void softReference(){
+
+    public void softReference() {
         //声明强引用
         Object obj = new Object();
-        SoftReference<Object> sf=new SoftReference<Object>(obj);
+        SoftReference<Object> sf = new SoftReference<Object>(obj);
         obj = null;
     }
 
-    public void phantomReference(){
+    public void phantomReference() {
         //声明虚引用
         Object obj = new Object();
         ReferenceQueue phantomQueue = new ReferenceQueue();

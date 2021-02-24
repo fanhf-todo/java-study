@@ -20,7 +20,7 @@ import java.util.Properties;
 
 
 @Slf4j
-@Intercepts({ @Signature(type = Executor.class, method = "update", args = { MappedStatement.class, Object.class }) })
+@Intercepts({@Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class})})
 public class DBTimeInterceptor implements Interceptor {
 
     @Override
@@ -28,14 +28,14 @@ public class DBTimeInterceptor implements Interceptor {
         MappedStatement mappedStatement = (MappedStatement) invocation.getArgs()[0];
         SqlCommandType sqlCommandType = mappedStatement.getSqlCommandType();
         Object params = invocation.getArgs()[1];
-        if(null != params && (SqlCommandType.INSERT.equals(sqlCommandType) || SqlCommandType.UPDATE.equals(sqlCommandType))){
-           Object list = ((DefaultSqlSession.StrictMap)params).get("list");
-           if(Objects.nonNull(list) && list instanceof List){
-              List<Object> objects = (List<Object>) list;
-               objects.forEach( ob ->{
-                  setTime(sqlCommandType,ob,invocation);
-               });
-           }
+        if (null != params && (SqlCommandType.INSERT.equals(sqlCommandType) || SqlCommandType.UPDATE.equals(sqlCommandType))) {
+            Object list = ((DefaultSqlSession.StrictMap) params).get("list");
+            if (Objects.nonNull(list) && list instanceof List) {
+                List<Object> objects = (List<Object>) list;
+                objects.forEach(ob -> {
+                    setTime(sqlCommandType, ob, invocation);
+                });
+            }
         }
         return null;
     }
@@ -45,17 +45,17 @@ public class DBTimeInterceptor implements Interceptor {
          *   对数据库表的deleted字段值进行赋值处理
          **/
 
-        Field deleted  = null;
+        Field deleted = null;
         try {
             deleted = ob.getClass().getDeclaredField("deleted");
         } catch (NoSuchFieldException e) {
-            log.error("{}对象中没有deleted字段",invocation.getClass().getName());
+            log.error("{}对象中没有deleted字段", invocation.getClass().getName());
             e.printStackTrace();
         }
-        if(Objects.nonNull(deleted) && Objects.nonNull(deleted.getAnnotation(Deleted.class))){
+        if (Objects.nonNull(deleted) && Objects.nonNull(deleted.getAnnotation(Deleted.class))) {
             deleted.setAccessible(true);
             try {
-                deleted.set(ob,1);
+                deleted.set(ob, 1);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
@@ -65,15 +65,15 @@ public class DBTimeInterceptor implements Interceptor {
          **/
         Field updateTime = null;
         try {
-             updateTime = ob.getClass().getDeclaredField("updateTIme");
+            updateTime = ob.getClass().getDeclaredField("updateTIme");
         } catch (NoSuchFieldException e) {
-            log.error("{}对象没有updateTime字段",invocation.getClass().getName());
+            log.error("{}对象没有updateTime字段", invocation.getClass().getName());
             e.printStackTrace();
         }
-        if(Objects.nonNull(updateTime) && Objects.nonNull(updateTime.getAnnotation(UpdateTime.class))){
+        if (Objects.nonNull(updateTime) && Objects.nonNull(updateTime.getAnnotation(UpdateTime.class))) {
             try {
                 updateTime.setAccessible(true);
-                updateTime.set(ob,getCurrentSecond());
+                updateTime.set(ob, getCurrentSecond());
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
@@ -81,18 +81,18 @@ public class DBTimeInterceptor implements Interceptor {
         /**
          *   对数据库表的createTime字段值进行插入时赋值处理
          **/
-        if(SqlCommandType.INSERT.equals(sqlCommandType)){
-           Field createTime = null;
+        if (SqlCommandType.INSERT.equals(sqlCommandType)) {
+            Field createTime = null;
             try {
                 createTime = ob.getClass().getDeclaredField("createTime");
             } catch (NoSuchFieldException e) {
-                log.error("{}对象没有createTime字段",invocation.getClass().getName());
+                log.error("{}对象没有createTime字段", invocation.getClass().getName());
                 e.printStackTrace();
             }
-            if(Objects.nonNull(createTime) && Objects.nonNull(createTime.getAnnotation(CreateTime.class))){
+            if (Objects.nonNull(createTime) && Objects.nonNull(createTime.getAnnotation(CreateTime.class))) {
                 try {
                     createTime.setAccessible(true);
-                    createTime.set(ob,getCurrentSecond());
+                    createTime.set(ob, getCurrentSecond());
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }

@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 @Order(1)
-public class    DataSourceAspect {
+public class DataSourceAspect {
 
     private Logger log = LoggerFactory.getLogger(DataSourceAspect.class);
 

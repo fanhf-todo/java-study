@@ -16,8 +16,9 @@ public class StringInternTest2 {
         System.out.println(s1 == s2);
         System.out.println(s1 == s2);
     }
-  @Test
-    public  void test() {
+
+    @Test
+    public void test() {
         String x = "ab";
         String s = new String("a") + new String("b");
         String s2 = s.intern();

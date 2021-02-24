@@ -2,11 +2,12 @@ package com.fanhf.javastudy.StringTest;
 
 
 /**
- *  String的垃圾回收：
- *  -Xms15m -Xmx15m -XX:+PrintStringTableStatistics -XX:+PrintGCDetails
+ * String的垃圾回收：
+ * -Xms15m -Xmx15m -XX:+PrintStringTableStatistics -XX:+PrintGCDetails
  */
 public class StringGCTest {
-private static String s = "11111";
+    private static String s = "11111";
+
     /**
      * 测试案例：
      * 1、先把参数配置上，注释掉for循环，运行看结果
@@ -22,7 +23,8 @@ private static String s = "11111";
         s = test();
         System.out.println("s:" + s);
     }
-    public static String test(){
+
+    public static String test() {
         String s = "adfsdfs";
         return s;
     }

@@ -8,8 +8,8 @@ import java.lang.ref.SoftReference;
  * @date 2021-01-05 16:33
  */
 public class SoftReferenceTest {
-    public static class User{
-        public User(int id,String name){
+    public static class User {
+        public User(int id, String name) {
             this.id = id;
             this.name = name;
         }
@@ -18,7 +18,7 @@ public class SoftReferenceTest {
         public String name;
 
         @Override
-        public String toString(){
+        public String toString() {
             return "[id=" + id + ",name=" + name + "]";
         }
     }
@@ -45,7 +45,7 @@ public class SoftReferenceTest {
             byte[] b = new byte[1024 * 1027 * 7];
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             //再次从软引用中获取数据
             //根据OOM之前，垃圾回收器会回收软引用的可达对象
             System.out.println(userSoftReference.get());

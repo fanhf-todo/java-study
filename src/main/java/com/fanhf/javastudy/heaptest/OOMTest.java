@@ -10,21 +10,21 @@ import java.util.Random;
  */
 public class OOMTest {
 
-    public  static  void main(String[] args){
-        ArrayList<Picture> list =  new ArrayList<>();
-        while (true){
+    public static void main(String[] args) {
+        ArrayList<Picture> list = new ArrayList<>();
+        while (true) {
             try {
-                Thread.sleep(10);
+                Thread.sleep(100000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            list.add(new Picture(new Random().nextInt(1024*1024)));
+            list.add(new Picture(new Random().nextInt(100 * 50)));
         }
     }
 }
 
-class Picture{
-    private  byte[] pixels;
+class Picture {
+    private byte[] pixels;
 
     public Picture(int length) {
         this.pixels = new byte[length];

@@ -254,20 +254,6 @@ class DateUtilsTest {
     void differentDays() {
         System.out.println(DateUtils.differentDays("2021-01-01", "2021-01-19", DateFomateEnum.DATE_FORMAT_SIMPLE_YYYY_MM_DD.getName()));
     }
-    @Test
-    void test(){
-        String snowflakeMd5 = DigestUtils.md5Hex(
-                String.format("%s|%s|%s","123456",
-                        RandomStringUtils.randomAlphanumeric(20),
-                        "15894663826"));
-        try {
-            byte[] qrcode = QRCodeUtil.getCodeByte("FHF_" + snowflakeMd5);
-            String loginQrcode = "data:image/png;base64," + Base64Utils.encodeToString(qrcode);
-            System.out.println("loginQrcode:" + loginQrcode);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     @Test
     void testtimes() {

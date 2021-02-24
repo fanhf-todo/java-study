@@ -2,9 +2,9 @@ package com.fanhf.javastudy.classloader;
 
 public class UserDefinedStringTest {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         java.lang.String str = new java.lang.String();
-        System.out.println("str:"+str);
+        System.out.println("str:" + str);
         System.out.println("hello..............");
         /**
          * 打印结果：

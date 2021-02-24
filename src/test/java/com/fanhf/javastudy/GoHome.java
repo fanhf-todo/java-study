@@ -9,8 +9,8 @@ import java.util.Objects;
 public class GoHome {
 
     @Test
-    public   void test(){
-        int homeAir  = 1379;
+    public void test() {
+        int homeAir = 1379;
         int homeTaix = 100;
         int toBJAir = 30;
 
@@ -19,19 +19,20 @@ public class GoHome {
         int backBachuTaix = 60;
         int backtoUrimuqiAir = 30;
         int tianjinbacktoBjTrain = 55;
-        int home = homeAir+homeTaix+toBJAir;
-        int back =backAir+backTrain+backBachuTaix+backtoUrimuqiAir+tianjinbacktoBjTrain;
-        System.out.println("home:"+home);
-        System.out.println("back:"+back);
-        System.out.println("total:"+(home+back));
+        int home = homeAir + homeTaix + toBJAir;
+        int back = backAir + backTrain + backBachuTaix + backtoUrimuqiAir + tianjinbacktoBjTrain;
+        System.out.println("home:" + home);
+        System.out.println("back:" + back);
+        System.out.println("total:" + (home + back));
     }
+
     @Test
-    public void test1(){
+    public void test1() {
         Long s1 = 370200L;
         Long s2 = 370200L;
-        if (Objects.nonNull(s1) && Objects.nonNull(s2)){
-            if(s1.longValue() == s2.longValue()){
-               System.out.println(".....");
+        if (Objects.nonNull(s1) && Objects.nonNull(s2)) {
+            if (s1.longValue() == s2.longValue()) {
+                System.out.println(".....");
             }
         }
     }

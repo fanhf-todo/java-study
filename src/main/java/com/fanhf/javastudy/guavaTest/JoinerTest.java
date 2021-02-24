@@ -19,12 +19,13 @@ import static com.google.common.collect.ImmutableMap.of;
  * @date 2020-12-30 16:17
  */
 public class JoinerTest {
-    private static final List<String> stringList = Arrays.asList("Google","Guava","Scala","Kafka","Java");
+    private static final List<String> stringList = Arrays.asList("Google", "Guava", "Scala", "Kafka", "Java");
     private static final List<String> stringNullList = Arrays.asList("Google", "Guava", "Scala", null, "Java");
     private static final String targetFileName = "d:/study/guava-joiner.txt";
     private static final String targetFileNameMap = "d:/study/guava-joiner-map.txt";
-    private static final Map<String, String> stringMap = of("hello","guava","hi","java");
-    public static void main(String[] args){
+    private static final Map<String, String> stringMap = of("hello", "guava", "hi", "java");
+
+    public static void main(String[] args) {
 
         String join = Joiner.on("#").join(stringList);
         System.out.println("join: " + join);
@@ -42,14 +43,14 @@ public class JoinerTest {
         try (FileWriter writer = new FileWriter(new File(targetFileName));) {
             Joiner.on("%").useForNull("DEFAULT").appendTo(writer, stringNullList);
 //            System.out.println( Files.isFile().test(new File(targetFileName)));
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("failed append");
         }
         String collect = stringNullList.stream().filter(item -> item != null && !item.isEmpty()).collect(joining("#"));
         System.out.println("collect: " + collect);
 
         String collectMap = stringNullList.stream()
-                .map(item -> item ==null || item.isEmpty() ?"DEFAULT" : item).collect(joining("$"));
+                .map(item -> item == null || item.isEmpty() ? "DEFAULT" : item).collect(joining("$"));
         System.out.println("collectMap: " + collectMap);
 
         String join1 = Joiner.on("#").withKeyValueSeparator("-").join(stringMap);
@@ -58,7 +59,7 @@ public class JoinerTest {
         try (FileWriter writer = new FileWriter(new File(targetFileNameMap));) {
             Joiner.on("%").withKeyValueSeparator("--").appendTo(writer, stringMap);
 //            System.out.println( Files.isFile().test(new File(targetFileNameMap)));
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("failed append");
         }
     }

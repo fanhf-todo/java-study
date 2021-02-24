@@ -6,7 +6,7 @@ package com.fanhf.javastudy.methodSpace;
  * @date 2020-12-14 15:33
  */
 public class SimpleClass {
-    public void sayHello(){
+    public void sayHello() {
         System.out.println("hello");
     }
 }   

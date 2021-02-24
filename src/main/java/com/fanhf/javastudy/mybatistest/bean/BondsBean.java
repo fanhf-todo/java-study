@@ -2,24 +2,38 @@ package com.fanhf.javastudy.mybatistest.bean;
 
 import com.fanhf.javastudy.sqlannotation.CreateTime;
 import com.fanhf.javastudy.sqlannotation.UpdateTime;
+import io.swagger.annotations.ApiModelProperty;
 
-public class BondsBean extends  CommonBean{
-    private  Integer bondId;
-    private  String  bondCode;
-    private  String  bondName;
-    private  Integer bondType;
-    private  Integer applyTime;
-    private  String  applyNumber;
-    private  String  choosedLucklyNumber;
-    private  Integer choosedLucklyTime;
-    private  String  givenMoney;
-    private  String  profit;
-    private  Integer beListsTime;
+public class BondsBean extends CommonBean {
+    @ApiModelProperty("基金id")
+    private Integer bondId;
+    @ApiModelProperty("基金代码")
+    private String bondCode;
+    @ApiModelProperty("基金名称")
+    private String bondName;
+    @ApiModelProperty("基金类型")
+    private Integer bondType;
+    @ApiModelProperty("基金申请时间")
+    private Integer applyTime;
+    @ApiModelProperty("基金申请数量")
+    private String applyNumber;
+    @ApiModelProperty("基金中签数量")
+    private String choosedLucklyNumber;
+    @ApiModelProperty("基金中签时间")
+    private Integer choosedLucklyTime;
+    @ApiModelProperty("基金支出金额")
+    private String givenMoney;
+    @ApiModelProperty("基金盈利")
+    private String profit;
+    @ApiModelProperty("基金列表时间")
+    private Integer beListsTime;
 
+    @ApiModelProperty("基金记录创建时间")
     @CreateTime
-    private  Integer  createTime;
+    private Integer createTime;
+    @ApiModelProperty("基金记录更新时间")
     @UpdateTime
-    private  Integer  updateTime;
+    private Integer updateTime;
 
     public Integer getBondId() {
         return bondId;

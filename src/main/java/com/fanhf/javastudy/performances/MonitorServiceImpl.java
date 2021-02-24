@@ -14,7 +14,11 @@ import java.math.RoundingMode;
  * @Description TODO
  * @date 2020-11-10 10:45
  */
-/** *//**
+/**
+ *
+ */
+
+/**
  * 获取系统信息的业务逻辑实现类.
  * @author amg * @version 1.0 Creation date: 2008-3-11 - 上午10:06:06
  */
@@ -26,7 +30,8 @@ public class MonitorServiceImpl implements IMonitorService {
 
     private static final int FAULTLENGTH = 10;
 
-    /** *//**
+    /** */
+    /**
      * 获得当前的监控对象.
      * @return 返回构造好的监控对象
      * @throws Exception
@@ -83,7 +88,8 @@ public class MonitorServiceImpl implements IMonitorService {
         return infoBean;
     }
 
-    /** *//**
+    /** */
+    /**
      * 获得CPU使用率.
      * @return 返回cpu使用率
      * @author amg     * Creation date: 2008-4-25 - 下午06:05:11
@@ -112,7 +118,8 @@ public class MonitorServiceImpl implements IMonitorService {
         }
     }
 
-    /** *//**
+    /** */
+    /**
      * 读取CPU信息.
      * @param proc
      * @return
@@ -183,7 +190,8 @@ public class MonitorServiceImpl implements IMonitorService {
         return null;
     }
 
-    /** *//**
+    /** */
+    /**
      * 测试方法.
      * @param args
      * @throws Exception

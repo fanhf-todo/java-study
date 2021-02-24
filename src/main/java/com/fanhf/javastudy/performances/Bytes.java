@@ -13,8 +13,8 @@ public class Bytes {
         byte[] b = src.trim().getBytes();
         String tgt = "";
 
-        for(int i = start_idx; i <= end_idx; ++i) {
-            tgt = tgt + (char)b[i];
+        for (int i = start_idx; i <= end_idx; ++i) {
+            tgt = tgt + (char) b[i];
         }
 
         return tgt;

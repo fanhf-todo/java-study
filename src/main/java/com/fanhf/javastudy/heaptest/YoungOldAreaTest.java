@@ -7,8 +7,8 @@ package com.fanhf.javastudy.heaptest;
  * @date 2020-12-08 17:51
  */
 public class YoungOldAreaTest {
-    public static void  main(String[] args){
+    public static void main(String[] args) {
         //20m
-        byte[] buf = new byte[1024*1024*20];
+        byte[] buf = new byte[1024 * 1024 * 20];
     }
 }   

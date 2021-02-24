@@ -19,14 +19,14 @@ import java.util.Scanner;
  * @date 2021-01-04 11:48
  */
 public class TestNonBlockingNIO2 {
-    public static void send(){
+    public static void send() {
         try {
             DatagramChannel dc = DatagramChannel.open();
             dc.configureBlocking(false);
             ByteBuffer buf = ByteBuffer.allocate(1024);
-            Scanner scanner=new Scanner(System.in);
-            while (scanner.hasNextLine()){
-                String  str=scanner.nextLine();
+            Scanner scanner = new Scanner(System.in);
+            while (scanner.hasNextLine()) {
+                String str = scanner.nextLine();
                 buf.put((LocalDateTime.now().toString() + ":\n" + str).getBytes());
                 buf.flip();
                 dc.send(buf, new InetSocketAddress("127.0.0.1", 9898));
@@ -37,23 +37,24 @@ public class TestNonBlockingNIO2 {
             e.printStackTrace();
         }
     }
-    public void receive(){
+
+    public void receive() {
         try {
-            DatagramChannel dc= DatagramChannel.open();
+            DatagramChannel dc = DatagramChannel.open();
             dc.configureBlocking(false);
             dc.bind(new InetSocketAddress(9898));
             Selector selector = Selector.open();
             dc.register(selector, SelectionKey.OP_READ);
             while (selector.select() > 0) {
-                Iterator<SelectionKey> it=selector.selectedKeys().iterator();
-                while (it.hasNext()){
+                Iterator<SelectionKey> it = selector.selectedKeys().iterator();
+                while (it.hasNext()) {
                     SelectionKey sk = it.next();
 
-                    if(sk.isReadable()){
+                    if (sk.isReadable()) {
                         ByteBuffer buf = ByteBuffer.allocate(1024);
                         dc.receive(buf);
                         buf.flip();
-                        System.out.println(new String(buf.array(),0,buf.limit()));
+                        System.out.println(new String(buf.array(), 0, buf.limit()));
                         buf.clear();
                     }
                 }

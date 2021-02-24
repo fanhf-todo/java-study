@@ -9,19 +9,19 @@ import java.util.ArrayList;
  * @date 2020-12-08 16:47
  */
 public class GCTest {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         int i = 0;
         try {
             ArrayList<String> list = new ArrayList<>();
-            String a= "com.fanhf";
-            while (true){
+            String a = "com.fanhf";
+            while (true) {
                 list.add(a);
-                a+=a;
+                a += a;
                 i++;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("遍历次数:"+i);
+            System.out.println("遍历次数:" + i);
         }
     }
 }   

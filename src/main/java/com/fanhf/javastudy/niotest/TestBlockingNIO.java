@@ -13,37 +13,37 @@ import java.nio.file.StandardOpenOption;
 /**
  * @author fanhf
  * @Description 选择器
- *
+ * <p>
  * 一、使用NIO 完成网络通信的三个核心：
- *
+ * <p>
  * 1、通道（Channel）：负责连接
- *     java.nio.channels.Channel 接口：
- *         |-- SelectableChannel
- *             |--SocketChannel
- *             |--ServerSocketChannel
- *             |--DatagramChannel
- *
- *             |--Pipe.SinkChannel
- *             |--Pipe.SourceChannel
- *
+ * java.nio.channels.Channel 接口：
+ * |-- SelectableChannel
+ * |--SocketChannel
+ * |--ServerSocketChannel
+ * |--DatagramChannel
+ * <p>
+ * |--Pipe.SinkChannel
+ * |--Pipe.SourceChannel
+ * <p>
  * 2、缓冲区（Buffer）：负责数据的存区
- *
+ * <p>
  * 3、选择器（Selector）：是SelectableChannel 的多路复用器，用于监控selectableChannel的IO状况
- *
  * @date 2020-12-31 15:01
  */
 public class TestBlockingNIO {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         server();
         client();
     }
+
     //客户端
-    public static void client(){
+    public static void client() {
         try {
             SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress("127.0.0.1", 9898));
             FileChannel inchannel = FileChannel.open(Paths.get("1.jpg"), StandardOpenOption.READ);
             ByteBuffer buf = ByteBuffer.allocate(1024);
-            while(inchannel.read(buf)!=-1){
+            while (inchannel.read(buf) != -1) {
                 buf.flip();
                 socketChannel.write(buf);
                 buf.clear();
@@ -64,6 +64,7 @@ public class TestBlockingNIO {
             e.printStackTrace();
         }
     }
+
     //服务端
     public static void server() {
         try (ServerSocketChannel serverSocketChannel = ServerSocketChannel.open()) {
@@ -85,7 +86,7 @@ public class TestBlockingNIO {
             socketChannel.close();
             serverSocketChannel.close();
             outchannel.close();
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

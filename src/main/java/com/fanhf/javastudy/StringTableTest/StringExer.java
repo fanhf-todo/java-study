@@ -8,15 +8,17 @@ package com.fanhf.javastudy.StringTableTest;
 public class StringExer {
 
     String string = new String("good");
-    char[] ch = {'t','e','s','t',};
-    public  static void main(String[] args){
+    char[] ch = {'t', 'e', 's', 't',};
+
+    public static void main(String[] args) {
         StringExer se = new StringExer();
-        se.change(se.string,se.ch);
+        se.change(se.string, se.ch);
         System.out.println(se.string);//good
         System.out.println(se.ch);//best
     }
-    public  void change(String str,char ch[]){
+
+    public void change(String str, char ch[]) {
         str = "test ok";
-        ch[0] ='b';
+        ch[0] = 'b';
     }
 }   

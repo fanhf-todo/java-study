@@ -14,7 +14,7 @@ public class LocalMemoryOOMTest {
     public static void main(String[] args) {
         ArrayList<ByteBuffer> bufferList = new ArrayList<ByteBuffer>();
         int count = 0;
-        while (true){
+        while (true) {
             ByteBuffer bf = ByteBuffer.allocateDirect(BUFFER);
             bufferList.add(bf);
             count++;
@@ -22,7 +22,7 @@ public class LocalMemoryOOMTest {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }finally {
+            } finally {
                 System.out.println(count);
             }
         }

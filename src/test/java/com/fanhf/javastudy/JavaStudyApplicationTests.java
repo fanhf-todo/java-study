@@ -8,7 +8,7 @@ class JavaStudyApplicationTests {
 
     @Test
     public void contextLoads() {
-        System.out.println("redis："+String.format("%s:%s", "activity", "bigfactory"));
+        System.out.println("redis：" + String.format("%s:%s", "activity", "bigfactory"));
     }
 
 }

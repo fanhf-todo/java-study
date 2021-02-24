@@ -38,15 +38,15 @@
         <setting name="jdbcTypeForNull" value="NULL"/>
 
         <!-- 为了控制台打印日志-->
-        <setting name="logImpl" value="LOG4J2" />
+        <setting name="logImpl" value="LOG4J2"/>
 
     </settings>
 
     <typeAliases>
-        <typeAlias type="com.alibaba.fastjson.JSONObject" alias="bean" />
+        <typeAlias type="com.alibaba.fastjson.JSONObject" alias="bean"/>
     </typeAliases>
     <!--插件注册-->
-<!--    <plugins>-->
-<!--        <plugin interceptor="com.jobtbao.platform.aop.UpdateTimeInterceptor"/>-->
-<!--    </plugins>-->
+    <!--    <plugins>-->
+    <!--        <plugin interceptor="com.jobtbao.platform.aop.UpdateTimeInterceptor"/>-->
+    <!--    </plugins>-->
 </configuration>

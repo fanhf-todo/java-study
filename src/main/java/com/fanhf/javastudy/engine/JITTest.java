@@ -12,9 +12,9 @@ public class JITTest {
         ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < 1000; i++) {
             list.add("hello");
-            try{
+            try {
                 Thread.sleep(1000);
-            }catch (InterruptedException e){
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }

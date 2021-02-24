@@ -20,8 +20,8 @@ import java.util.Map;
 @Slf4j
 public class FreeMakerTest {
 
-   public  static void main(String[] args) throws IOException, TemplateException {
-       FreeMakerTest freeMakerTest = new FreeMakerTest();
+    public static void main(String[] args) throws IOException, TemplateException {
+        FreeMakerTest freeMakerTest = new FreeMakerTest();
 //       freeMakerTest.nameWord();
 
 //       ConstructionBean constructionBean1 = freeMakerTest.cons1();
@@ -29,12 +29,12 @@ public class FreeMakerTest {
 //       freeMakerTest.constructionExcel(constructionBean1,3);
 //       freeMakerTest.constructionExcel(constructionBean2,4);
 
-       ResumeBean resumeBean =  freeMakerTest.resume();
+        ResumeBean resumeBean = freeMakerTest.resume();
 //       freeMakerTest.resumeTemplate(resumeBean,1);
-       freeMakerTest.resumeTemplate(resumeBean,2);
-   }
+        freeMakerTest.resumeTemplate(resumeBean, 2);
+    }
 
-    public  void nameWord() throws IOException, TemplateException {
+    public void nameWord() throws IOException, TemplateException {
         // 第一步：创建一个Configuration对象，直接new一个对象。构造方法的参数就是freemarker对于的版本号。
         Configuration configuration = new Configuration(Configuration.getVersion());
         // 第二步：设置模板文件使用的字符集。一般就是utf-8.
@@ -45,7 +45,7 @@ public class FreeMakerTest {
         dataModel.put("name", "this is my first freemarker test.");
         // 第四步：创建一个Writer对象，一般创建一FileWriter对象，指定生成的文件名。
         Template template = null;
-        try (Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("D:/study/java/name/name.doc"), "UTF-8"));){
+        try (Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("D:/study/java/name/name.doc"), "UTF-8"));) {
             // 第五步：设置模板文件所在的路径。
             configuration.setClassForTemplateLoading(this.getClass(), "/templates");
             //文件名，获取模板
@@ -59,7 +59,7 @@ public class FreeMakerTest {
         }
     }
 
-    public  void constructionExcel(ConstructionBean constructionBean,Integer type) throws IOException, TemplateException {
+    public void constructionExcel(ConstructionBean constructionBean, Integer type) throws IOException, TemplateException {
         //第一步，创建一个Configuration对象，直接new一个对象，构造方法的参数就是freemaker对应的版本号
         Configuration configuration = new Configuration(Configuration.getVersion());
         //第二步 设置模板文件使用的字符集，一般是U8
@@ -67,43 +67,43 @@ public class FreeMakerTest {
         //第三步 创建一个模板中使用的数据的对象，将对象存到map
         Map map = new HashMap<>();
         //第四步 向数据集中添加数据
-        map.put("constructionBeans",constructionBean);
+        map.put("constructionBeans", constructionBean);
         //第五步 数据准备好，模板准备好，就准备开始写文件
         Template template = null;
-        try (Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("D:/study/java/name/construction"+type+".docx")))){
-            configuration.setClassForTemplateLoading(this.getClass(),"/templates");
+        try (Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("D:/study/java/name/construction" + type + ".docx")))) {
+            configuration.setClassForTemplateLoading(this.getClass(), "/templates");
             //文件名，获取模板
             template = configuration.getTemplate("construction.ftl");
             //第六步 调用模板对象的process方法输出文件
-            template.process(map,out);
+            template.process(map, out);
             //第七步 关闭流
             out.close();
             log.info("生成文档结束......");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void resumeTemplate(ResumeBean resumeBean,Integer type){
-       Configuration configuration = new Configuration(Configuration.getVersion());
-       configuration.setDefaultEncoding("utf-8");
+    public void resumeTemplate(ResumeBean resumeBean, Integer type) {
+        Configuration configuration = new Configuration(Configuration.getVersion());
+        configuration.setDefaultEncoding("utf-8");
 
-       Map map = new HashMap();
-       map.put("resumeBean",resumeBean);
+        Map map = new HashMap();
+        map.put("resumeBean", resumeBean);
 
-       Template template = null;
-       try (Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("D:/study/java/name/resume"+type+".docx")))) {
-           configuration.setClassForTemplateLoading(this.getClass(),"/templates");
-           template = configuration.getTemplate("resume.ftl");
-           template.process(map,out);
-           out.close();
-           log.info("简历生成结束");
-       }catch (Exception e){
-           e.printStackTrace();
-       }
+        Template template = null;
+        try (Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("D:/study/java/name/resume" + type + ".docx")))) {
+            configuration.setClassForTemplateLoading(this.getClass(), "/templates");
+            template = configuration.getTemplate("resume.ftl");
+            template.process(map, out);
+            out.close();
+            log.info("简历生成结束");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public ConstructionBean cons1(){
+    public ConstructionBean cons1() {
         ConstructionBean constructionBean1 = new ConstructionBean();
         constructionBean1.setCompanyName("小熊猫网络科技有限公司");
         constructionBean1.setProjectName("基础建设");
@@ -120,7 +120,7 @@ public class FreeMakerTest {
         constructionBean1.setOtherFee(4000.0D);
         constructionBean1.setStartWorkTime("2020-12-01");
         constructionBean1.setFinishedWorkTime("2120-12-30");
-        constructionBean1.setTotalDays(100*12*30);
+        constructionBean1.setTotalDays(100 * 12 * 30);
         constructionBean1.setArrivalLevel(1);
         constructionBean1.setQualityGuarantee("保持100年无故障");
         constructionBean1.setConstructionMaterial("光纤材料，钢材，铝合金");
@@ -128,7 +128,7 @@ public class FreeMakerTest {
         return constructionBean1;
     }
 
-    public ConstructionBean cons2(){
+    public ConstructionBean cons2() {
         ConstructionBean constructionBean2 = new ConstructionBean();
         constructionBean2.setCompanyName("华鼎科技有限公司");
         constructionBean2.setProjectName("网络建设");
@@ -145,15 +145,15 @@ public class FreeMakerTest {
         constructionBean2.setOtherFee(1000.0D);
         constructionBean2.setStartWorkTime("2020-12-01");
         constructionBean2.setFinishedWorkTime("2050-12-30");
-        constructionBean2.setTotalDays(30*12*30);
+        constructionBean2.setTotalDays(30 * 12 * 30);
         constructionBean2.setArrivalLevel(1);
         constructionBean2.setQualityGuarantee("保持50年无故障");
         constructionBean2.setConstructionMaterial("光纤材料，钢材，铝合金");
         return constructionBean2;
     }
 
-    public  ResumeBean resume(){
-        ResumeBean resumeBean =  new ResumeBean();
+    public ResumeBean resume() {
+        ResumeBean resumeBean = new ResumeBean();
         resumeBean.setBirthDay("2000月1月1日");
         resumeBean.setTel("15894663826");
         resumeBean.setPlaceOfBirth("河南商丘");
@@ -175,7 +175,7 @@ public class FreeMakerTest {
         resumeBean.setOfficeSkills("通过计算机等级考试（二级C），熟练掌握Word、Excel、PPT等日常办公软件");
         resumeBean.setSelfAssessment("本人具备销售人员应具有的素质：积极，自信，大胆，开朗，沟通力强。专业的产品知识、谈话技巧、商务礼仪。成熟稳重，责任心强，心态稳定，敢于担当重任； 有一定的营销与管理经验，接受能力强，能迅速接受新的理论与技能。");
 
-        return  resumeBean;
+        return resumeBean;
 
     }
 }

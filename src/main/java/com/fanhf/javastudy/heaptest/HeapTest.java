@@ -8,7 +8,7 @@ package com.fanhf.javastudy.heaptest;
 public class HeapTest {
     //docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         System.out.println("start...............");
         try {
             Thread.sleep(100000);

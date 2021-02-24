@@ -37,7 +37,7 @@ public class EnumInfoController {
         return new ResultData().setList(ageList);
     }
 
-    public static List<EnumInfo> ageEnumInit(){
+    public static List<EnumInfo> ageEnumInit() {
         AgeEnum[] values = AgeEnum.values();
         Arrays.stream(values).forEach(ageEnum -> {
             EnumInfo enumInfo = EnumInfo.builder()

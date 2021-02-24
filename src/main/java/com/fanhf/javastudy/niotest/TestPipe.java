@@ -1,8 +1,13 @@
 package com.fanhf.javastudy.niotest;
 
-import java.io.IOException;
+import javax.swing.*;
+import java.io.*;
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
-import java.nio.channels.Pipe;
+import java.nio.channels.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 /**
  * @author fanhf
@@ -10,7 +15,7 @@ import java.nio.channels.Pipe;
  * @date 2021-01-04 15:08
  */
 public class TestPipe {
-    public static void test(){
+    public static void test() {
         //1.获取管道
         try {
             Pipe pipe = Pipe.open();
@@ -33,4 +38,46 @@ public class TestPipe {
         }
 
     }
+
+public static void zipFilePipe(){
+    Long fileSize = 1024000L;
+        try(WritableByteChannel out=Channels.newChannel(new FileOutputStream(""))){
+            Pipe pipe = Pipe.open();
+            //异步任务
+            CompletableFuture.runAsync(() -> runTask(pipe));
+
+            //获取通道
+            ReadableByteChannel readableByteChannel = pipe.source();
+            ByteBuffer byteBuffer = ByteBuffer.allocate((int) (fileSize * 10));
+            while (readableByteChannel.read(byteBuffer) >= 0) {
+                byteBuffer.flip();
+                out.write(byteBuffer);
+                byteBuffer.clear();
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+}
+    //异步任务
+    public static void runTask(Pipe pipe){
+        String prefix= "_";
+        try (ZipOutputStream zos = new ZipOutputStream(Channels.newOutputStream(pipe.sink()));
+             WritableByteChannel out = Channels.newChannel(zos)) {
+             System.out.println("");
+            for (int i = 0; i < 10 ; i++) {
+                zos.putNextEntry(new ZipEntry(i + prefix));
+                File file;
+                FileChannel jpgChannel = new FileInputStream(new File("")).getChannel();
+                jpgChannel.transferTo(0, 1024, out);
+                jpgChannel.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }   
+
+
+

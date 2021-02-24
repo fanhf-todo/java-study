@@ -12,11 +12,12 @@ public class MethodAreaTest {
         order.hello();
         System.out.println(Order.count);
     }
-}   
-class Order{
+}
+
+class Order {
     public static int count = 1;
 
-    public static void hello(){
+    public static void hello() {
         System.out.println("hello");
     }
 }

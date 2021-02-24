@@ -5,6 +5,7 @@ package com.fanhf.javastudy.atomic;
  * @Description TODO
  * @date 2020-11-10 10:42
  */
+
 import java.util.concurrent.TimeUnit;
 
 public class MonkeysWorker implements Runnable {

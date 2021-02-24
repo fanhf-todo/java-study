@@ -8,7 +8,7 @@ import java.security.Provider;
 
 public class ClassLoaderTest1 {
 
-    public  static void main(String[] args){
+    public static void main(String[] args) {
         System.out.println("*************启动类加载器****************");
         URL[] urLs = Launcher.getBootstrapClassPath().getURLs();
         for (int i = 0; i < urLs.length; i++) {
@@ -31,8 +31,8 @@ public class ClassLoaderTest1 {
 
         System.out.println("*************扩展类加载器******************");
         String property = System.getProperty("java.ext.dirs");
-        for (String path:property.split(";")) {
-            System.out.println("path:"+path);
+        for (String path : property.split(";")) {
+            System.out.println("path:" + path);
             /**
              * path:C:\Program Files\Java\jdk1.8.0_101\jre\lib\ext
              * path:C:\Windows\Sun\Java\lib\ext

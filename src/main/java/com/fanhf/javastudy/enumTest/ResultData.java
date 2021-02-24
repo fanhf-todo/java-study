@@ -27,7 +27,7 @@ public class ResultData<T extends ResultBean> implements Serializable {
     }
 
     public ResultData(String code) {
-        this(code, (String)null);
+        this(code, (String) null);
     }
 
     public ResultData(String code, String message) {
